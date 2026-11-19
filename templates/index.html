@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Listado</title>
+    <!-- Vinculamos la hoja de estilos CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Contenedor principal centrado -->
+    <main class="contenedor-principal">
+        
+        <div class="tarjeta">
+            <!-- Título principal -->
+            <h1 class="titulo">Listado de Notas</h1>
+
+            <!-- FORMULARIO: Si estamos editando o agregando -->
+            {% if item_a_editar %}
+                <!-- Modo Edición -->
+                <form action="/editar/{{ item_a_editar['id'] }}" method="POST" class="formulario">
+                    <label class="etiqueta-edicion">Modo edición:</label>
+                    <textarea 
+                        name="contenido" 
+                        rows="3" 
+                        placeholder="Edita tu texto aquí..." 
+                        required>{{ item_a_editar['contenido'] }}</textarea>
+                    
+                    <div class="acciones-formulario">
+                        <button type="submit" class="boton boton-rojo">Guardar Cambios</button>
+                        <a href="/" class="boton boton-cancelar">Cancelar</a>
+                    </div>
+                </form>
+            {% else %}
+                <!-- Modo Agregar -->
+                <form action="/agregar" method="POST" class="formulario">
+                    <textarea 
+                        name="contenido" 
+                        rows="3" 
+                        placeholder="Escribe tu nota o tarea aquí..." 
+                        required></textarea>
+                    
+                    <button type="submit" class="boton boton-rojo">Publicar en el Listado</button>
+                </form>
+            {% endif %}
+
+            <!-- Separador visual -->
+            <hr class="divisor">
+
+            <!-- Subtítulo del listado -->
+            <h2 class="subtitulo">Elementos Guardados</h2>
+
+            <!-- LISTADO DE ELEMENTOS -->
+            <div class="lista">
+                {% if items %}
+                    {% for item in items %}
+                        <div class="item">
+                            <!-- Contenido del texto -->
+                            <span class="item-texto">{{ item['contenido'] }}</span>
+                            
+                            <!-- Botones de acción: Editar y Eliminar -->
+                            <div class="item-acciones">
+                                <a href="/?editar={{ item['id'] }}" class="boton-accion boton-editar">Editar</a>
+                                <a href="/eliminar/{{ item['id'] }}" class="boton-accion boton-eliminar" onclick="return confirm('¿Seguro que deseas eliminar este elemento?');">Eliminar</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <!-- Mensaje si la lista está vacía -->
+                    <p class="mensaje-vacio">No hay elementos en la lista todavía. ¡Escribe uno arriba!</p>
+                {% endif %}
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

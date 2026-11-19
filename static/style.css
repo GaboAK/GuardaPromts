@@ -1,0 +1,236 @@
+/* ========================================================
+   ESTILOS GENERALES (Modo Claro con Tonos Rojos)
+   ======================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fondo de la página con un toque suave y claro en tono cálido/rojizo */
+body {
+    background-color: #fdf5f5;
+    color: #2d3748;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Contenedor que centra la tarjeta en la pantalla */
+.contenedor-principal {
+    width: 100%;
+    max-width: 520px;
+}
+
+/* ========================================================
+   TARJETA PRINCIPAL
+   ======================================================== */
+
+.tarjeta {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    /* Sombra suave y borde ligero con sutil tinte rojo */
+    box-shadow: 0 10px 25px rgba(185, 28, 28, 0.08), 0 4px 6px rgba(0, 0, 0, 0.03);
+    border: 1px solid #ffe4e6;
+}
+
+/* Título principal con tono rojo elegante */
+.titulo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #991b1b; /* Rojo oscuro */
+    margin-bottom: 20px;
+}
+
+/* Subtítulo */
+.subtitulo {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 15px;
+}
+
+/* Línea divisoria */
+.divisor {
+    border: none;
+    border-top: 1px solid #fee2e2; /* Tinte rojo muy tenue */
+    margin: 22px 0;
+}
+
+/* ========================================================
+   FORMULARIO Y CAMPOS DE ENTRADA
+   ======================================================== */
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.etiqueta-edicion {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #b91c1c;
+}
+
+/* Cuadro de texto (textarea) */
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: #fffafa; /* Fondo blanco con tinte rojizo sutil */
+}
+
+/* Al hacer clic en el textarea se resalta con borde rojo */
+textarea:focus {
+    border-color: #dc2626; /* Rojo vibrante */
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+    background-color: #ffffff;
+}
+
+/* ========================================================
+   BOTONES
+   ======================================================== */
+
+.boton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.boton:active {
+    transform: scale(0.98);
+}
+
+/* Botón principal de acción en rojo */
+.boton-rojo {
+    background-color: #dc2626; /* Rojo llamativo */
+    color: #ffffff;
+    align-self: flex-start;
+}
+
+.boton-rojo:hover {
+    background-color: #b91c1c; /* Rojo más oscuro al pasar el ratón */
+}
+
+/* Botón para cancelar la edición */
+.boton-cancelar {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.boton-cancelar:hover {
+    background-color: #d1d5db;
+}
+
+.acciones-formulario {
+    display: flex;
+    gap: 10px;
+}
+
+/* ========================================================
+   LISTA DE ELEMENTOS Y BOTONES DE FILA
+   ======================================================== */
+
+.lista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Cada fila o elemento del listado */
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fffbfa;
+    border: 1px solid #fecaca; /* Borde rojo suave */
+    border-radius: 8px;
+    padding: 12px 14px;
+    transition: background-color 0.15s;
+}
+
+.item:hover {
+    background-color: #fff1f2; /* Resalte tenue al pasar el ratón */
+}
+
+/* Texto del elemento */
+.item-texto {
+    font-size: 0.95rem;
+    color: #1f2937;
+    word-break: break-word;
+    margin-right: 12px;
+}
+
+/* Contenedor de botones de acción por fila */
+.item-acciones {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+/* Botoncitos pequeños de Editar y Eliminar */
+.boton-accion {
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+    display: inline-block;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.boton-accion:hover {
+    opacity: 0.9;
+}
+
+.boton-accion:active {
+    transform: scale(0.95);
+}
+
+/* Botón Editar (Amarillo dorado como en la imagen de referencia) */
+.boton-editar {
+    background-color: #eab308;
+    color: #78350f;
+}
+
+.boton-editar:hover {
+    background-color: #ca8a04;
+    color: #ffffff;
+}
+
+/* Botón Eliminar (Rojo vivo) */
+.boton-eliminar {
+    background-color: #dc2626;
+}
+
+.boton-eliminar:hover {
+    background-color: #b91c1c;
+}
+
+/* Mensaje cuando la lista no tiene nada */
+.mensaje-vacio {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: center;
+    padding: 15px 0;
+}
